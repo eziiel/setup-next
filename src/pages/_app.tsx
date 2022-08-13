@@ -1,9 +1,16 @@
-import React from "react";
+import React from "react"
+import { AppProps } from "next/app"
+import Global from "../styles/global"
+import { ThemeProvider } from "styled-components"
+import theme from "../styles/theme"
 
-import { AppProps } from "next/app";
+const MyApp: React.FC = ({ Component, pageProps }: AppProps) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+      <Global/>
+    </ThemeProvider>
+  )
+}
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
-};
-
-export default MyApp;
+export default MyApp
